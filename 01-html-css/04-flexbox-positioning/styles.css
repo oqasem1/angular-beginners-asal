@@ -3,25 +3,25 @@
 .flexbox-container {
 	height: 100px;
 	background-color: orange;
-	/* display: flex;
+	 display: flex;
 	justify-content: space-between;
-	align-items: center; */
-	/* padding-left: 16px;
-	padding-right: 16px; */
-	/* width: 100%; */
+	align-items: center;
+	padding-left: 16px;
+	padding-right: 16px;
+	width: 100%;
 }
 
 .flex-item {
 	height: 60px;
 	background-color: red;
 	/* border: 1px solid black; */
-	width: 100px;
+	width: 300px;
 }
 
 .login {
-	height: 200px;
-	width: 200px;
-	background-color: green;
+	height: 400px;
+	width: 500px;
+	background-color: #ffffff;
 }
 
 .footer {

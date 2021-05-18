@@ -1,32 +1,116 @@
 <html>
-	<head>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-			integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-		<link rel="stylesheet" href="styles.css" />
-	</head>
-	<body>
-	
-		<div 
-			class="page-layout align-items-center vh-100 justify-content-between d-flex flex-column">
-		
-			<div class="w-100 pr-3 pl-3 flexbox-container header d-flex justify-content-betwen align-items-center">
-			
-				<div class="flex-item border">
+
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+	<div class="align-items-center vh-100 justify-content-between d-flex flex-column">
+		<div>
+			<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+
+
+				<div class="w-100 pr-3 pl-3 flexbox-container header d-flex justify-content-betwen align-items-center">
+
+					<div class="flex-item border">
+						<a class="navbar-brand js-scroll-trigger" href="#page-top">My Company</a>
+						<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+							data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+							aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+					</div>
+
+					<div class="flex-item">
+						<div class="collapse navbar-collapse" id="navbarResponsive">
+							<ul class="navbar-nav ml-auto my-2 my-lg-0">
+								<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+								<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a>
+								</li>
+								<li class="nav-item"><a class="nav-link js-scroll-trigger"
+										href="#portfolio">Portfolio</a></li>
+								<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
 				</div>
-			
-				<div class="flex-item">
-				</div>
-			
-			</div>
-			
-			<div class="login">
-			</div>
-			
-			<div class="footer w-100"></div>
-		
+			</nav>
 		</div>
-		
-		
-		
-	</body>
+		<div class="login">
+			<div _ngcontent-eho-c100="" class="col-xlg-8">
+				<div _ngcontent-eho-c100="" class="card shadow-lg border-0 rounded-lg mt-5">
+					<div _ngcontent-eho-c100="" class="card-header justify-content-center">
+						<h3 _ngcontent-eho-c100="" class="font-weight-light my-4">Login</h3>
+					</div>
+					<div _ngcontent-eho-c100="" class="card-body">
+						<form _ngcontent-eho-c100="" novalidate="" class="ng-untouched ng-pristine ng-invalid">
+							<div _ngcontent-eho-c100="" class="form-group"><label _ngcontent-eho-c100=""
+									for="inputEmailAddress" class="small mb-1">Email</label><input
+									_ngcontent-eho-c100="" id="inputEmailAddress" data-cy="emailInput" type="email"
+									placeholder="Enter email address" aria-describedby="emailHelp"
+									formcontrolname="email"
+									class="form-control py-4 ng-untouched ng-pristine ng-invalid">
+								<div _ngcontent-eho-c100="" class="invalid-feedback">Email required.</div>
+								<!---->
+								<!---->
+							</div>
+							<div _ngcontent-eho-c100="" class="form-group"><label _ngcontent-eho-c100=""
+									for="inputPassword" class="small mb-1">Password</label><input _ngcontent-eho-c100=""
+									id="inputPassword" data-cy="passwordInput" type="password"
+									placeholder="Enter password" formcontrolname="password"
+									class="form-control py-4 ng-untouched ng-pristine ng-invalid">
+								<div _ngcontent-eho-c100="" class="invalid-feedback">Password required.</div>
+								<!---->
+								<!---->
+							</div>
+							<div _ngcontent-eho-c100="" class="form-group">
+								<div _ngcontent-eho-c100="" class="custom-control custom-checkbox"><input
+										_ngcontent-eho-c100="" id="rememberPasswordCheck"
+										data-cy="rememberPasswordCheck" type="checkbox" formcontrolname="checkbox"
+										class="custom-control-input ng-untouched ng-pristine ng-valid"><label
+										_ngcontent-eho-c100="" for="rememberPasswordCheck"
+										class="custom-control-label">Remember password</label></div>
+							</div>
+							<div _ngcontent-eho-c100=""
+								class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a
+									_ngcontent-eho-c100="" routerlink="/auth/forgot-password" class="small"
+									href="/auth/forgot-password">Forgot Password?</a><button _ngcontent-eho-c100=""
+									data-cy="loginButton" type="submit" class="btn btn-primary"
+									disabled="">Login</button></div>
+						</form>
+					</div>
+					<div _ngcontent-eho-c100="" class="card-footer text-center">
+						<div _ngcontent-eho-c100="" class="small"><a _ngcontent-eho-c100="" routerlink="/auth/register"
+								href="/auth/register">Need an account? Sign up!</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer w-100">
+			<div _ngcontent-eho-c94="" id="layoutAuthentication_footer">
+				<sb-footer _ngcontent-eho-c94="" _nghost-eho-c89="">
+					<footer _ngcontent-eho-c89="" class="footer mt-auto footer-dark">
+						<div _ngcontent-eho-c89="" class="container-fluid">
+							<div _ngcontent-eho-c89="" class="row">
+								<div _ngcontent-eho-c89="" class="col-md-6 small">Copyright © Omar's Website 2021</div>
+								<div _ngcontent-eho-c89="" class="col-md-6 text-md-right small"><a _ngcontent-eho-c89=""
+										href="/auth/login">Privacy Policy</a> · <a _ngcontent-eho-c89=""
+										href="/auth/login">Terms &amp; Conditions</a></div>
+							</div>
+						</div>
+					</footer>
+				</sb-footer>
+			</div>
+		</div>
+
+	</div>
+
+
+
+</body>
+
 </html>
