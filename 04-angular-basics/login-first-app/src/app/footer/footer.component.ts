@@ -7,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 public date = new Date();
-public message ="**";
+public message ="*999*";
   constructor() { }
 
   ngOnInit(): void {
+  }
+  sayHello(){
+    return 'Hello World'
   }
 
 }

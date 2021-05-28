@@ -58,3 +58,11 @@ You can use elements from the previous login ex where we used HTML and CSS to cr
 - `HeaderComponent`
 - `LoginComponent`
 - `FooterComponent`
+
+## EX. Login (Ready by Omar)
+
+- binding to the submit event of the form
+- binding to the input event of the email and password
+- whenever you submit the login form: print the email and passwrod to the console
+- Try to create an `Auth` module
+  - the `LoginComponent` will belong to the `AuthModule` while the `HeaderComponent, FooterComponent` will belong to the `AppModule`
