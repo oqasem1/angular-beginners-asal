@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,24 +8,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-public email='';
-public password ='';
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+
+  password = '';
+  hide = true;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  userTypedEmail(event: any){
+  userTypedEmail(event: any) {
 
-    console.log("email: "+(this.email=event.target.value))
+    console.log("email: " + (event.target.value))
   }
-  userTypedPassword(event: any){
-    console.log("password: "+(this.password=event.target.value))
+  userTypedPassword(event: any) {
+    console.log("password: " + (this.password = event.target.value))
   }
-  getValues(event: any, email: any, password: any){
+  getValues(event: any, email: any, password: any) {
 
-    console.log("Submitted email: "+email)
-    console.log("Submitted Password: "+password)
+    console.log("Submitted email: " + email.value)
+    console.log("Submitted Password: " + password)
+  }
+
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
 
