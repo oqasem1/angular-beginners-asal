@@ -7,6 +7,9 @@ import { FooterComponent } from './footer/footer.component';
 import { SettingsModule } from 'src/settings/settings.module';
 import { AuthModule } from 'src/auth/auth.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     SettingsModule,
     AuthModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

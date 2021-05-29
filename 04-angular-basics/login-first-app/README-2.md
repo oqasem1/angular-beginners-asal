@@ -66,3 +66,7 @@ You can use elements from the previous login ex where we used HTML and CSS to cr
 - whenever you submit the login form: print the email and passwrod to the console
 - Try to create an `Auth` module
   - the `LoginComponent` will belong to the `AuthModule` while the `HeaderComponent, FooterComponent` will belong to the `AppModule`
+- Try to install @angular/material and use the following components:
+  - Button
+  - Text fields
+  - Toolbar for header
