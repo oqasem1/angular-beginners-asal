@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   password = '';
   hide = true;
 
-  constructor() { }
+  tokenObj: any =[];
+  constructor(private _loginService: LoginService) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +32,16 @@ export class LoginComponent implements OnInit {
 
     console.log("Submitted email: " + email.value)
     console.log("Submitted Password: " + password)
+
+    // Call https://academeez-login-ex.herokuapp.com/api/users/login through loginService
+
+    this._loginService.sendPostRequest(email.value, password).subscribe((token)=>{
+      this.tokenObj = token;
+       // then print the token object to the console
+      console.log("Token: "+this.tokenObj.token)
+    })
+
+
   }
 
   getErrorMessage() {

@@ -70,3 +70,19 @@ You can use elements from the previous login ex where we used HTML and CSS to cr
   - Button
   - Text fields
   - Toolbar for header
+
+- when the user submits the login form, send a request to server with the email and password that the user entered
+
+```typescript
+// _http: HttpClient
+this._http
+  .post('https://academeez-login-ex.herokuapp.com/api/users/login',
+  {email: 'yariv@nerdeez.com', 'password': '12345678'})
+
+  { token: 'sdfasdfasdfasdfasdf'}
+```
+
+print the object to the console
+
+**This is ready too, but disabled from main page, as prefer to show after succsefull login atempt**
+- create a `TodoListComponent` that grabs the todo list from this server: https://nztodo.herokuapp.com/api/tasks/?format=json

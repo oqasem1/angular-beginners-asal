@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { TodoModule } from 'src/todo/todo.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserModule,
     SettingsModule,
     AuthModule,
+    TodoModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatToolbarModule,
