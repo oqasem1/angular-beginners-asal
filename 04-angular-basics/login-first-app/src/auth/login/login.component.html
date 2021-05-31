@@ -5,7 +5,7 @@
                 <h2 class="font-weight-light my-4">Login</h2>
             </div>
             <div class="card-body">
-                <form novalidate="" class="ng-untouched ng-pristine ng-invalid">
+                <form novalidate="" class="ng-untouched ng-pristine ng-invalid" (ngSubmit)="onSubmit()">
 
                     <div class="form-group">
                         <div class="example-container">
@@ -13,7 +13,7 @@
                                 <mat-label>Enter your email</mat-label>
                                 <input matInput placeholder="pat@example.com" [formControl]="email" required
                                     (input)="userTypedEmail($event)" class="font-weight-light my-1">
-                                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                                <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
                             </mat-form-field>
                         </div>
                     </div>
@@ -22,12 +22,13 @@
                         <div class="example-container">
                             <mat-form-field appearance="fill">
                                 <mat-label>Enter your password</mat-label>
-                                <input matInput [type]="hide ? 'password' : 'text'" (input)="userTypedPassword($event)"
+                                <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" (input)="userTypedPassword($event)"
                                     required>
                                 <button mat-icon-button matSuffix (click)="hide = !hide"
                                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
+                                <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
                             </mat-form-field>
                         </div>
 
@@ -41,8 +42,7 @@
                     <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a
                             routerlink="/auth/forgot-password" class="small" href="/auth/forgot-password">Forgot
                             Password?</a><button data-cy="loginButton" type="submit" mat-raised-button color="primary"
-                            [disabled]="!password || email.invalid"
-                            (click)="getValues($event, email, password)">Login</button></div>
+                            [disabled]="password.invalid || email.invalid">Login</button></div>
                 </form>
             </div>
             <div class="card-footer text-center">
