@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { TaskService } from '../task.service';
 
 @Component({
@@ -6,7 +7,7 @@ import { TaskService } from '../task.service';
   template: `
 
     <mat-selection-list #tasksList>
-      <mat-list-option *ngFor="let task of tasks">
+      <mat-list-option *ngFor="let task of tasks2$ | async">
             {{task.title}}
       </mat-list-option>
     </mat-selection-list>
@@ -21,12 +22,18 @@ import { TaskService } from '../task.service';
 })
 export class TodoListComponent implements OnInit {
   tasks: any =[];
+  tasks2$: Observable<any> = null;
   constructor(private _tasks: TaskService) { }
 
   ngOnInit(): void {
-    this._tasks.getTasks().subscribe((tasksJson)=>{
-    this.tasks = tasksJson;
-    })
+    this.tasks2$=this._tasks.getTasks();
+
+    /*
+      Replace subscribe to event callback by use the async pipe for the TodoList component
+    */
+    //this._tasks.getTasks().subscribe((tasksJson)=>{
+    //this.tasks = tasksJson;
+    //})
   }
 
 }
