@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import * as EventEmitter from 'events';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -9,10 +10,12 @@ import { LoginService } from '../login.service';
 })
 export class LoginComponent implements OnInit {
 
+  @Input('url')
+  url=''
+
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
 
-  //password = '';
   hide = true;
 
   tokenObj: any =[];
@@ -54,6 +57,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
 
     this.getValues()
+    this._loginService.url=this.url;
     console.log('Form submitted!');
 
         // Call https://academeez-login-ex.herokuapp.com/api/users/login through loginService
@@ -64,6 +68,12 @@ export class LoginComponent implements OnInit {
           console.log("Token: "+this.tokenObj.token)
         })
 
+  }
+  @Output()
+  login: EventEmitter = new EventEmitter();
+
+  emitLogin(){
+    this.login.emit(this.email.value);
   }
 
 
