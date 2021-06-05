@@ -9,6 +9,6 @@ export class AppComponent {
   title = 'login-first-app';
 
   loginOutput(msg: string) {
-    console.log(msg);
+    console.log("Login successfuly "+msg);
   }
 }

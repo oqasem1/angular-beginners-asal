@@ -1,6 +1,5 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import * as EventEmitter from 'events';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -64,13 +63,14 @@ export class LoginComponent implements OnInit {
 
         this._loginService.sendPostRequest(this.email.value, this.password.value).subscribe((token)=>{
           this.tokenObj = token;
+          this.emitLogin();
            // then print the token object to the console
           console.log("Token: "+this.tokenObj.token)
         })
 
   }
   @Output()
-  login: EventEmitter = new EventEmitter();
+  login: EventEmitter<string> = new EventEmitter();
 
   emitLogin(){
     this.login.emit(this.email.value);
