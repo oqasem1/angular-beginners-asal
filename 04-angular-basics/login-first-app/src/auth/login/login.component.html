@@ -42,7 +42,7 @@
                     <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a
                             routerlink="/auth/forgot-password" class="small" href="/auth/forgot-password">Forgot
                             Password?</a><button data-cy="loginButton" type="submit" mat-raised-button color="primary"
-                            [disabled]="password.invalid || email.invalid">Login</button></div>
+                            [disabled]="password.invalid || email.invalid || clicked">Login</button></div>
                 </form>
             </div>
             <div class="card-footer text-center">

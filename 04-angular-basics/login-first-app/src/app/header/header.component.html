@@ -19,8 +19,8 @@
                   </div>
                 </mat-toolbar-row>
 
-                <mat-toolbar-row>
-                    <span style="font-size: 12px;">First Angular app to learn more</span>
+                <mat-toolbar-row *ngIf="userEmail">Logged-in as {{userEmail}}
+                    <!-- <span style="font-size: 12px;">First Angular app to learn more: {{userEmail}}</span> -->
                   </mat-toolbar-row>
               </mat-toolbar>
         <!-- </div> -->
