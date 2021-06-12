@@ -12,7 +12,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sidenav(){}
 
   @Input('userEmail')
   userEmail=''
