@@ -7,10 +7,10 @@ import { HttpClient } from '@angular/common/http'
 export class LoginService {
   private _url: string = '';
 
-  public get url(): string {
+  get url(): string {
     return this._url;
   }
-  public set url(value: string) {
+  set url(value: string) {
     this._url = value;
   }
   constructor(private _http: HttpClient) { }

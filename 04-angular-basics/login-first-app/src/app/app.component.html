@@ -1,6 +1,7 @@
 <div class="align-items-center vh-100 justify-content-between d-flex flex-column">
   <app-header [userEmail]="publishLogin()"></app-header>
   <app-login url="https://academeez-login-ex.herokuapp.com/api/users/login" (login)="loginOutput($event)"></app-login>
+  <app-register></app-register>
   <!-- <app-user-settings></app-user-settings> -->
   <!-- <app-todo-list></app-todo-list> -->
   <app-footer class="footer w-100"></app-footer>

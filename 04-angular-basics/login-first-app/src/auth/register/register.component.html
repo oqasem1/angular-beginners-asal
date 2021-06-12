@@ -2,10 +2,10 @@
     <div class="col-xlg-8">
         <div class="card shadow-lg border-0 rounded-lg mt-5">
             <div class="card-header justify-content-center">
-                <h2 class="font-weight-light my-4">Login</h2>
+                <h2 class="font-weight-light my-4">Registration Form</h2>
             </div>
             <div class="card-body">
-                <form novalidate="" class="ng-untouched ng-pristine ng-invalid" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <form novalidate="" class="ng-untouched ng-pristine ng-invalid" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
 
                     <div class="form-group">
                         <div class="example-container">
@@ -13,7 +13,7 @@
                                 <mat-label>Enter your email</mat-label>
                                 <input matInput placeholder="pat@example.com" formControlName="email" required
                                     (input)="userTypedEmail($event)" class="font-weight-light my-1">
-                                <mat-error *ngIf="email.invalid && (email.dirty || email.touched)"> You must enter a valid email</mat-error>
+                                <mat-error *ngIf="myForm.email.invalid && (myForm.email.dirty || myForm.email.touched)"> You must enter a valid email</mat-error>
                             </mat-form-field>
                         </div>
                     </div>
@@ -28,25 +28,38 @@
                                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
-                                <mat-error *ngIf="password.errors?.required">
+                                <mat-error *ngIf="myForm.password.errors?.required">
                                     Password is required.</mat-error>
-                                    <mat-error *ngIf="password.errors?.minlength">
+                                    <mat-error *ngIf="myForm.password.errors?.minlength">
                                         Password should contain 3 characters at least.</mat-error>
                             </mat-form-field>
                         </div>
+                        <div class="example-container">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Confirm your password</mat-label>
+                                <input matInput [type]="hideConfirmation ? 'password' : 'text'" formControlName="confirmPassword" (input)="userTypedConfirmPassword($event)"
+                                    required>
+                                <button mat-icon-button matSuffix (click)="hideConfirmation = !hideConfirmation"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmation">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="myForm.confirmPassword.errors?.required">
+                                    Password is required.</mat-error>
+                                    <mat-error *ngIf="myForm.confirmPassword.errors?.minlength">
+                                        Confirm password should contain 3 characters at least.</mat-error>
+                                        <mat-error *ngIf="myForm.confirmPassword.errors?.matching">
+                                            Passwords must match.</mat-error>
+                            </mat-form-field>
+                        </div>
+
 
                     </div>
                     <div><span style='color:red;margin-right:1.25em; display:inline-block;'>&nbsp;</span></div>
-                    <div class="form-group">
-                        <div class="custom-control custom-checkbox"><input id="rememberPasswordCheck"
-                                data-cy="rememberPasswordCheck" type="checkbox" formcontrolname="checkbox"
-                                class="custom-control-input ng-untouched ng-pristine ng-valid"><label
-                                for="rememberPasswordCheck" class="custom-control-label">Remember password</label></div>
-                    </div>
+
                     <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a
                             routerlink="/auth/forgot-password" class="small" href="/auth/forgot-password">Forgot
                             Password?</a><button data-cy="loginButton" type="submit" mat-raised-button color="primary"
-                            [disabled]="!loginForm.valid || !loginForm.dirty">Login</button></div>
+                            [disabled]="!registrationForm.valid || !registrationForm.dirty">Register</button></div>
                 </form>
             </div>
             <div class="card-footer text-center">

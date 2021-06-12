@@ -11,7 +11,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { TodoModule } from 'src/todo/todo.module';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +26,6 @@ import { TodoModule } from 'src/todo/todo.module';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule
-
 
   ],
   providers: [],

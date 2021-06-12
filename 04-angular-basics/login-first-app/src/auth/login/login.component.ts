@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -12,14 +12,28 @@ export class LoginComponent implements OnInit {
   @Input('url')
   url=''
 
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required]);
+  // loginForm = this._formBuilder.group({
+  //   phoneNumbers: this._formBuilder.array([
+  //     this._formBuilder.group({
+  //       email: ['', [Validators.required, Validators.email]],
+  //       password: ['', [Validators.required, Validators.minLength(3)]]
+  //     })
+  //   ])
+  // })
+
+   loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(3)])
+ });
+
+  get email() { return this.loginForm.get('email'); }
+  get password() { return this.loginForm.get('password'); }
 
   clicked: boolean =  false
   hide = true;
 
   tokenObj: any =[];
-  constructor(private _loginService: LoginService) { }
+  constructor(private _loginService: LoginService, private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
   }
@@ -35,24 +49,9 @@ export class LoginComponent implements OnInit {
   }
   getValues() {
 
-    console.log("Submitted email: " + this.email.value)
-    console.log("Submitted Password: " + this.password.value)
+    console.log("Submitted email: " + this.loginForm.value.email)
+    console.log("Submitted Password: " + this.loginForm.value.password)
 
-  }
-
-  getEmailErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter an email';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-
-  getPasswordErrorMessage() {
-    if (this.password.hasError('required')) {
-      return 'You must enter a password';
-    }
-    return '';
   }
 
 
@@ -64,7 +63,7 @@ export class LoginComponent implements OnInit {
 
     // Call https://academeez-login-ex.herokuapp.com/api/users/login through loginService
 
-    this._loginService.sendPostRequest(this.email.value, this.password.value).subscribe((token) => {
+    this._loginService.sendPostRequest(this.loginForm.value.email, this.loginForm.value.password).subscribe((token) => {
       this.tokenObj = token;
       this.emitLogin(true);
       // then print the token object to the console
@@ -83,7 +82,7 @@ export class LoginComponent implements OnInit {
   login: EventEmitter<string> = new EventEmitter();
 
   emitLogin(success: boolean) {
-    let email = this.email.value;
+    let email = this.loginForm.value.email;
     console.log("email value:"+email)
     success?this.login.emit(email): this.login.emit(undefined)
 
@@ -91,10 +90,15 @@ export class LoginComponent implements OnInit {
   clearForm(){
 
     this.clicked=true;
-    this.email.reset()
-    this.password.reset()
-    this.email.setErrors(null);
-    this.password.setErrors(null);
+
+    //this.loginForm.setErrors(null)
+
+    //this.loginForm.setErrors(null);
+    this.loginForm.reset();
+    this.email.setErrors(null)
+    this.password.setErrors(null)
+    //this.loginForm.va
+
   }
 
 

@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-public date = new Date();
-public message ="*999*";
+date = new Date();
+message ="*999*";
   constructor() { }
 
   ngOnInit(): void {
